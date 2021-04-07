@@ -1005,7 +1005,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109835888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.052}
+  m_LocalPosition: {x: 0, y: 0, z: 0.048}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 162911786}
@@ -1013,7 +1013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.639, y: 0.686}
+  m_AnchoredPosition: {x: 0.779, y: 0.292}
   m_SizeDelta: {x: 80, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &109835890
@@ -1037,7 +1037,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 10
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1050,7 +1050,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Blue Team
 
-    Score:'
+    Score: 0
+
+    Active: False'
 --- !u!222 &109835891
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1112,7 +1114,6 @@ GameObject:
   - component: {fileID: 155840758}
   - component: {fileID: 155840757}
   - component: {fileID: 155840756}
-  - component: {fileID: 155840755}
   m_Layer: 5
   m_Name: ObjectInteractionCanvas
   m_TagString: Untagged
@@ -1128,7 +1129,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155840753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.629}
+  m_LocalPosition: {x: 0, y: 0, z: 2.902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5876855}
@@ -1136,30 +1137,14 @@ RectTransform:
   - {fileID: 510805073}
   - {fileID: 739912668}
   - {fileID: 63276729}
-  m_Father: {fileID: 1049203910}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.888, y: 0.186}
+  m_AnchoredPosition: {x: 1.432, y: 1.586}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &155840755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155840753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a71123593dbf42183e552c0ca67607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreBoard: {fileID: 0}
-  redText: {fileID: 0}
-  blueText: {fileID: 0}
-  showMenu: 0
 --- !u!114 &155840756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,6 +1218,7 @@ GameObject:
   - component: {fileID: 162911784}
   - component: {fileID: 162911783}
   - component: {fileID: 162911787}
+  - component: {fileID: 162911788}
   m_Layer: 5
   m_Name: ScoreCanvas
   m_TagString: Untagged
@@ -1308,17 +1294,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162911782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.629}
+  m_LocalPosition: {x: 0, y: 0, z: 2.902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 278498904}
   - {fileID: 109835889}
-  m_Father: {fileID: 1049203910}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.221, y: 0.205}
+  m_AnchoredPosition: {x: -0.6769999, y: 1.605}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162911787
@@ -1336,7 +1322,23 @@ MonoBehaviour:
   scoreBoard: {fileID: 0}
   redText: {fileID: 0}
   blueText: {fileID: 0}
-  showMenu: 0
+  distance: 0.5
+--- !u!114 &162911788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162911782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a71123593dbf42183e552c0ca67607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreBoard: {fileID: 0}
+  redText: {fileID: 0}
+  blueText: {fileID: 0}
+  distance: 0.5
 --- !u!1 &166962094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1678805311569458, guid: 8fe69ef6330d4134a8d60dd9be9af7b0,
@@ -1623,7 +1625,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278498903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.052000046}
+  m_LocalPosition: {x: 0, y: 0, z: 0.048}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 162911786}
@@ -1631,7 +1633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.569, y: 0.696}
+  m_AnchoredPosition: {x: -0.598, y: 0.292}
   m_SizeDelta: {x: 80, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278498905
@@ -1655,7 +1657,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 10
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1668,7 +1670,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Red Team
 
-    Score:'
+    Score: 0
+
+    Active: True'
 --- !u!222 &278498906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5371,12 +5375,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049203908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.544, y: 1.4, z: 0.273}
+  m_LocalPosition: {x: -0.345, y: 1.246, z: -1.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1698947826}
-  - {fileID: 162911786}
-  - {fileID: 155840754}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8038,8 +8040,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698947825}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.27, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1230917873}
@@ -8093,12 +8095,12 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 87.7
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
