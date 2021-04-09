@@ -19,6 +19,8 @@ public class ScoreController:MonoBehaviour
     public Text redText;
     public Text blueText;
     public Text gameStatus;
+    public Button playAgain;
+    public Button mainMenu;
     public float distance = 50.0f;
 
     void Start()
@@ -42,6 +44,10 @@ public class ScoreController:MonoBehaviour
         redText = transform.Find("RedText").GetComponent<Text>();
         blueText = transform.Find("BlueText").GetComponent<Text>();
         gameStatus = transform.Find("GameStatusText").GetComponent<Text>();
+        playAgain = transform.Find("PlayAgainButton").GetComponent<Button>();
+        mainMenu = transform.Find("MainMenuButton").GetComponent<Button>();
+        playAgain.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
     }
 
     void Update()
@@ -102,6 +108,16 @@ public class ScoreController:MonoBehaviour
 
     public void GameEnd()
     {
+        //force the scoreboard to pop up
+        //set up the menu position
+        scoreBoard.transform.position = Camera.main.transform.position + Camera.main.transform.forward * distance;
+        scoreBoard.transform.rotation = Camera.main.transform.rotation;
+
+        //make menu visible
+        scoreBoard.enabled = true;
+
         //enable main menu and play again buttons
+        playAgain.gameObject.SetActive(true);
+        mainMenu.gameObject.SetActive(true);
     }
 }

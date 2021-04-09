@@ -1112,6 +1112,7 @@ GameObject:
   - component: {fileID: 155840758}
   - component: {fileID: 155840757}
   - component: {fileID: 155840756}
+  - component: {fileID: 155840755}
   m_Layer: 5
   m_Name: ObjectInteractionCanvas
   m_TagString: Untagged
@@ -1143,6 +1144,18 @@ RectTransform:
   m_AnchoredPosition: {x: 1.432, y: 1.586}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &155840755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155840753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dff07c4db19ca849a87fd1b55f316d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &155840756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,11 +1332,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a71123593dbf42183e552c0ca67607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueWin: 8
+  redWin: 8
   scoreBoard: {fileID: 0}
   redText: {fileID: 0}
   blueText: {fileID: 0}
   gameStatus: {fileID: 0}
-  distance: 0.5
+  playAgain: {fileID: 0}
+  mainMenu: {fileID: 0}
+  distance: 1
 --- !u!1 &166962094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1678805311569458, guid: 8fe69ef6330d4134a8d60dd9be9af7b0,

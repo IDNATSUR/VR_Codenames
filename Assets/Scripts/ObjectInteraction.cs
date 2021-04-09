@@ -67,6 +67,13 @@ public class ObjectInteractionController : ObjectController
             //if it is assassin, end game, !redTurn wins
             //if it is neutral nothing else happens
             //if it is the double object, it belongs to the team that went first
+                //if(turn == 0){
+                    //give point to blue team
+                //}
+                //else{
+                    //give point to red team
+                //}
+
             color = !color;
             renderer.material.SetColor("_Color", color ? Color.red : ORIGIN_COLOR);
         }
