@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuDisplayController : MonoBehaviour
 {
-    private float distance = 2.5f;
+    private float distance = 1.5f;
     private Canvas menu;
     private static MODE mode;
     public static MODE Mode { get => mode; }
@@ -23,7 +23,7 @@ public class MenuDisplayController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Fire1"))
         {
             //set up the menu position
             menu.transform.position = Camera.main.transform.position + Camera.main.transform.forward * distance;
