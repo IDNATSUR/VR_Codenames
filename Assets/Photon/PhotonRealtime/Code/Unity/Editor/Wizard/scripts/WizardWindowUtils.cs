@@ -166,7 +166,7 @@ Please, follow the instructions on the next steps to get your installation ready
             }
             catch (Exception)
             {
-                this.releaseHistoryHeader = "\nPlease look the file changes-realtime.txt";
+                this.releaseHistoryHeader = "\nPlease check the file changes-realtime.txt";
                 this.releaseHistoryTextAdded = new List<string>();
                 this.releaseHistoryTextChanged = new List<string>();
                 this.releaseHistoryTextFixed = new List<string>();

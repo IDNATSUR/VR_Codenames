@@ -93,7 +93,7 @@ public class ObjectInteractionController : ObjectController
 
     public void hasClick()
     {
-        if(!isClick)
+        if(!isClick && MenuDisplayController.Mode == MenuDisplayController.MODE.COLOR_MODE)
             isClick = true;
     }
 }

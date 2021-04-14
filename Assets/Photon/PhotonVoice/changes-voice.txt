@@ -1,5 +1,11 @@
 Photon Voice 2 Change Log
 
+v2.24.1 (April 13th, 2021)
+   PUN2: v2.30 (341a087)
+   PhotonVoiceApi: revision 6019
+   FIXED: broken DemoVoicePun.
+   ADDED: (back) opus Linux libs. Linux should be a supported platform.
+
 v2.24 (March 15th, 2021)
    PUN2: v2.29 (fd2ef98)
    PhotonVoiceApi: revision 6019

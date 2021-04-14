@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using Photon.Pun;
 using Photon.Realtime;
 
 public class GameLobby : MonoBehaviourPunCallbacks
 {
-    //Our player name
+    // Start is called before the first frame update
     string playerName = "Player 1";
     //Users are separated from each other by gameversion (which allows you to make breaking changes).
     string gameVersion = "0.9";
@@ -17,7 +18,6 @@ public class GameLobby : MonoBehaviourPunCallbacks
     Vector2 roomListScroll = Vector2.zero;
     bool joiningRoom = false;
 
-    // Use this for initialization
     void Start()
     {
         //This makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
@@ -32,6 +32,7 @@ public class GameLobby : MonoBehaviourPunCallbacks
         }
     }
 
+    // Update is called once per frame
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.Log("OnFailedToConnectToPhoton. StatusCode: " + cause.ToString() + " ServerAddress: " + PhotonNetwork.ServerAddress);

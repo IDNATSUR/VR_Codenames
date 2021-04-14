@@ -33,6 +33,9 @@ public class RoomController : MonoBehaviourPunCallbacks
         //Leave this Room
         if (GUI.Button(new Rect(5, 5, 125, 25), "Leave Room"))
         {
+            ScoreController.blueScore = 0;
+            ScoreController.redScore = 0;
+            ScoreController.assassinTouch = false;
             PhotonNetwork.LeaveRoom();
         }
 
