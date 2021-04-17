@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MenuDisplayController : MonoBehaviour
 {
+    CharacterController cc;
     private float distance = 1.5f;
     private Canvas menu;
     private static MODE mode;
@@ -19,6 +20,7 @@ public class MenuDisplayController : MonoBehaviour
     {
         menu = GetComponent<Canvas>();
         menu.enabled = false;
+        cc = transform.parent.GetComponent<CharacterController>();
     }
 
     public void Update()
@@ -48,6 +50,16 @@ public class MenuDisplayController : MonoBehaviour
                 break;
             case "clear":
                 mode = MODE.NONE;
+                break;
+            case "spawn":
+                cc.enabled = false;
+                transform.parent.transform.position = new Vector3(-.451156f, .25f, 1.286f);
+                cc.enabled = true;
+                break;
+            case "spymaster":
+                cc.enabled = false;
+                transform.parent.transform.position = new Vector3(-4.053f, .25f, -36.198f);
+                cc.enabled = true;
                 break;
             default:
                 break;
