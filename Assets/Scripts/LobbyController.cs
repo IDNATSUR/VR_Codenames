@@ -103,6 +103,6 @@ public class LobbyController : MonoBehaviourPunCallbacks
         //if(PhotonNetwork.IsMasterClient && SceneManager.GetActiveScene().name != "Network")
         //    PhotonNetwork.LoadLevel("Network");
         if(PhotonNetwork.IsMasterClient && SceneManager.GetActiveScene().name != "MainScene")
-            PhotonNetwork.LoadLevel("MainScene");
+            PhotonNetwork.LoadLevel("SpaceScene");
     }
 }

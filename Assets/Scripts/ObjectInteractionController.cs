@@ -15,7 +15,7 @@ public class ObjectInteractionController : ObjectController
 
     void Start()
     {
-
+        
     }
 
     void Update()
