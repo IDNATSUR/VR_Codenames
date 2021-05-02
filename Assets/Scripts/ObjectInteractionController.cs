@@ -5,6 +5,8 @@ using Photon.Pun;
 
 public class ObjectInteractionController : ObjectController
 {
+    public ScoreController sc;
+
     //rotate variable
     private float rotateSpeed = 360.0F;
 
@@ -15,7 +17,7 @@ public class ObjectInteractionController : ObjectController
 
     void Start()
     {
-
+        sc = GameObject.Find("RoomController").GetComponent<ScoreController>();
     }
 
     void Update()
@@ -27,26 +29,16 @@ public class ObjectInteractionController : ObjectController
         switch (MenuDisplayController.Mode)
         {
             case MenuDisplayController.MODE.ROTATE_MODE:
-                rotate();
+                if (isPointEnter && isPointDown)
+                    rotate();
                 break;
             case MenuDisplayController.MODE.MOVE_MODE:
-                move();
+                if (isPointEnter && isPointDown)
+                    move();
                 break;
             default:
                 break;
         }
-    }
-
-    void rotate()
-    {
-        if (isPointEnter && isPointDown)
-            transform.Rotate(0, Time.deltaTime * rotateSpeed, 0);
-    }
-
-    void move()
-    {
-        if (isPointEnter && isPointDown)
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
     //this method should be public and directly linked to the click event
@@ -56,44 +48,23 @@ public class ObjectInteractionController : ObjectController
             return;
         if (MenuDisplayController.Mode == MenuDisplayController.MODE.COLOR_MODE)
         {
-            // color = !color;
-            // renderer.material.SetColor("_Color", Color.red);
-            //determine what color object it is by looking at the parent
-            switch (objColor)
-            {
-                case "blue":
-                    ScoreController.blueScore++;
-                    ScoreController.redTurn = false;
-    
-                    break;
-                case "red":
-                    ScoreController.redScore++;
-                    ScoreController.redTurn = true;
-                    break;
-                case "double":
-                    if (ScoreController.turn == 0) {
-                        ScoreController.redScore++;
-                        ScoreController.redTurn = true;
-                    }
-                    else {
-                        ScoreController.blueScore++;
-                        ScoreController.redTurn = false;
-                    }
-                    break;
-                case "neutral":
-                    ScoreController.redTurn = !ScoreController.redTurn;
-                    break;
-                case "assassin":
-                    ScoreController.assassinTouch = true;
-                    break;
-                
-            }
+            sc.Click(objColor);
         }
     }
 
     public void hasClick()
     {
-        if(!isClick && MenuDisplayController.Mode == MenuDisplayController.MODE.COLOR_MODE)
+        if (!isClick && MenuDisplayController.Mode == MenuDisplayController.MODE.COLOR_MODE)
             isClick = true;
+    }
+
+    void rotate()
+    {
+        transform.Rotate(0, Time.deltaTime * rotateSpeed, 0);
+    }
+
+    void move()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 }

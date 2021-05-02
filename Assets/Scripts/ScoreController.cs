@@ -17,9 +17,13 @@ public class ScoreController:MonoBehaviourPun, IPunObservable
     public static int turn;
 
     public static bool assassinTouch = false;
-    
+
+    PhotonView photonView;
+
     void Start()
     {
+        photonView = PhotonView.Get(this);
+
         //randomly set up who goes first
         System.Random random = new System.Random(); 
         turn= random.Next(0,2);
@@ -58,6 +62,44 @@ public class ScoreController:MonoBehaviourPun, IPunObservable
             redWin = (int)stream.ReceiveNext();
             turn = (int)stream.ReceiveNext();
             assassinTouch = (bool)stream.ReceiveNext();
+        }
+    }
+
+    public void Click(string objColor)
+    {
+        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+        // color = !color;
+        // renderer.material.SetColor("_Color", Color.red);
+        //determine what color object it is by looking at the parent
+        switch (objColor)
+        {
+            case "blue":
+                blueScore++;
+                redTurn = false;
+
+                break;
+            case "red":
+                redScore++;
+                redTurn = true;
+                break;
+            case "double":
+                if (turn == 0)
+                {
+                    redScore++;
+                    redTurn = true;
+                }
+                else
+                {
+                    blueScore++;
+                    redTurn = false;
+                }
+                break;
+            case "neutral":
+                redTurn = !redTurn;
+                break;
+            case "assassin":
+                assassinTouch = true;
+                break;
         }
     }
 

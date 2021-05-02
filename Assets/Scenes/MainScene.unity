@@ -1013,7 +1013,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 396469696}
@@ -3319,17 +3319,25 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 544910445}
+  - {fileID: 0}
   - {fileID: 166962098}
+  - {fileID: 0}
   - {fileID: 1422139615}
+  - {fileID: 0}
   - {fileID: 778941182}
+  - {fileID: 0}
   - {fileID: 500833156}
+  - {fileID: 0}
   - {fileID: 1901391449}
+  - {fileID: 0}
   - {fileID: 767911303}
+  - {fileID: 0}
   - {fileID: 791907815}
+  - {fileID: 0}
   sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -3612,7 +3620,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 624990280}
@@ -6011,7 +6019,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 517475392}
@@ -20903,7 +20911,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1915995871}
@@ -21238,7 +21246,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 1
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1871513843}
