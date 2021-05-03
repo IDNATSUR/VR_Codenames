@@ -53,12 +53,12 @@ public class MenuDisplayController : MonoBehaviour
                 break;
             case "spawn":
                 cc.enabled = false;
-                transform.parent.transform.position = new Vector3(-.451156f, .25f, 1.286f);
+                transform.parent.transform.position = new Vector3(0f, 2f, 0f);
                 cc.enabled = true;
                 break;
             case "spymaster":
                 cc.enabled = false;
-                transform.parent.transform.position = new Vector3(-4.053f, .25f, -36.198f);
+                transform.parent.transform.position = new Vector3(0f, -98f, 0f);
                 cc.enabled = true;
                 break;
             default:

@@ -65,12 +65,12 @@ public class ScoreBoard : MonoBehaviour
         if (ScoreController.redTurn)
         {
             gameStatus.text = "\nRed Team found the assassin Object. Blue Team wins!";
-            gameStatus.color = Color.black;
+            gameStatus.color = Color.gray;
         }
         else
         {
             gameStatus.text = "\nBlue Team found the assassin Object. Red Team wins!";
-            gameStatus.color = Color.black;
+            gameStatus.color = Color.gray;
         }
         //ScoreController.GameEnd();
     }
