@@ -11,12 +11,14 @@ public class ScoreBoard : MonoBehaviour
     public Text gameStatus;
     public float distance = 50.0f;
 
+
     void Start()
     {
         scoreBoard = GetComponent<Canvas>();
         redText = transform.Find("RedText").GetComponent<Text>();
         blueText = transform.Find("BlueText").GetComponent<Text>();
         gameStatus = transform.Find("GameStatusText").GetComponent<Text>();
+
 
         //show the menu
         scoreBoard.enabled = true;
@@ -45,13 +47,15 @@ public class ScoreBoard : MonoBehaviour
         {
             gameStatus.text = "\nRed Team Wins!";
             gameStatus.color = Color.red;
-            //ScoreController.GameEnd();
+            EndGame.gameover = true;
+            
         }
         else if (ScoreController.blueScore == ScoreController.blueWin)
         {
             gameStatus.text = "\nBlue Team Wins!";
             gameStatus.color = Color.blue;
-            //ScoreController.GameEnd();
+            EndGame.gameover = true;
+            
         }
         if (ScoreController.assassinTouch)
             FoundAssassin();
@@ -72,6 +76,6 @@ public class ScoreBoard : MonoBehaviour
             gameStatus.text = "\nBlue Team found the assassin Object. Red Team wins!";
             gameStatus.color = Color.gray;
         }
-        //ScoreController.GameEnd();
+        EndGame.gameover = true;
     }
 }

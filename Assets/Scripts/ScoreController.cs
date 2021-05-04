@@ -13,17 +13,22 @@ public class ScoreController:MonoBehaviourPun, IPunObservable
     public static int blueWin = 8;
     public static int redWin = 8;
 
+
     //turn is used to randomly decide which team goes first
     public static int turn;
 
     public static bool assassinTouch = false;
 
+    public static bool gameover = false;
     PhotonView photonView;
+
+    
 
     void Start()
     {
         photonView = PhotonView.Get(this);
-
+        // endMenu = GetComponent<Canvas>();
+        // endMenu.gameObject.SetActive(false);
         //randomly set up who goes first
         System.Random random = new System.Random(); 
         turn= random.Next(0,2);
@@ -106,12 +111,5 @@ public class ScoreController:MonoBehaviourPun, IPunObservable
     void Update()
     {
 
-    }
-
-    public void GameEnd()
-    {
-        //enable main menu and play again buttons
-        // playAgain.gameObject.SetActive(true);
-        // mainMenu.gameObject.SetActive(true);
     }
 }

@@ -9,6 +9,9 @@ public class LobbyController : MonoBehaviourPunCallbacks
 {
     public Button btnConnectMaster;
     public Button btnConnectRoom;
+    public Button btnConnectMoon;
+
+    public string sceneName;
 
     
     
@@ -25,6 +28,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
         triesToConnectToRoom   = false;
         btnConnectMaster = transform.Find("btnConnectToMaster").GetComponent<Button>();
         btnConnectRoom = transform.Find("btnConnectRoom").GetComponent<Button>();
+        btnConnectMoon = transform.Find("btnConnectMoon").GetComponent<Button>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class LobbyController : MonoBehaviourPunCallbacks
             btnConnectMaster.gameObject.SetActive(!PhotonNetwork.IsConnected && !triesToConnectToMaster);
         if (btnConnectRoom != null)
             btnConnectRoom.gameObject.SetActive(PhotonNetwork.IsConnected && !triesToConnectToMaster && !triesToConnectToRoom);
+        if (btnConnectMoon != null)
+            btnConnectMoon.gameObject.SetActive(PhotonNetwork.IsConnected && !triesToConnectToMaster && !triesToConnectToRoom);
     }
 
     public void OnClickConnectToMaster()
@@ -68,11 +74,12 @@ public class LobbyController : MonoBehaviourPunCallbacks
         Debug.Log(cause);
     }
 
-    public void OnClickConnectToRoom()
+    public void OnClickConnectToRoom(string theme)
     {
+        //determine the theme
+        this.sceneName = theme;
         if (!PhotonNetwork.IsConnected)
             return;
-
         triesToConnectToRoom = true;
         //PhotonNetwork.CreateRoom("Peter's Game 1"); //Create a specific Room - Error: OnCreateRoomFailed
         //PhotonNetwork.JoinRoom("Peter's Game 1");   //Join a specific Room   - Error: OnJoinRoomFailed  
@@ -103,6 +110,6 @@ public class LobbyController : MonoBehaviourPunCallbacks
         //if(PhotonNetwork.IsMasterClient && SceneManager.GetActiveScene().name != "Network")
         //    PhotonNetwork.LoadLevel("Network");
         if(PhotonNetwork.IsMasterClient && SceneManager.GetActiveScene().name != "MainScene")
-            PhotonNetwork.LoadLevel("SpaceScene");
+            PhotonNetwork.LoadLevel(this.sceneName);
     }
 }
