@@ -47,14 +47,14 @@ public class ScoreBoard : MonoBehaviour
         {
             gameStatus.text = "\nRed Team Wins!";
             gameStatus.color = Color.red;
-            EndGame.gameover = true;
+            ScoreController.gameover = true;
             
         }
         else if (ScoreController.blueScore == ScoreController.blueWin)
         {
             gameStatus.text = "\nBlue Team Wins!";
             gameStatus.color = Color.blue;
-            EndGame.gameover = true;
+            ScoreController.gameover = true;
             
         }
         if (ScoreController.assassinTouch)
@@ -76,6 +76,6 @@ public class ScoreBoard : MonoBehaviour
             gameStatus.text = "\nBlue Team found the assassin Object. Red Team wins!";
             gameStatus.color = Color.gray;
         }
-        EndGame.gameover = true;
+        ScoreController.gameover = true;
     }
 }

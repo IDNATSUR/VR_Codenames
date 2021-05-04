@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 public class LobbyController : MonoBehaviourPunCallbacks
 {
-    public Button btnConnectMaster;
+    //public Button btnConnectMaster;
     public Button btnConnectRoom;
     public Button btnConnectMoon;
 
@@ -26,20 +26,19 @@ public class LobbyController : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(this);
         triesToConnectToMaster = false;
         triesToConnectToRoom   = false;
-        btnConnectMaster = transform.Find("btnConnectToMaster").GetComponent<Button>();
+        //btnConnectMaster = transform.Find("btnConnectToMaster").GetComponent<Button>();
         btnConnectRoom = transform.Find("btnConnectRoom").GetComponent<Button>();
         btnConnectMoon = transform.Find("btnConnectMoon").GetComponent<Button>();
+
+        if(!PhotonNetwork.IsConnected)
+            PhotonNetwork.ConnectUsingSettings();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (btnConnectMaster != null)
-            btnConnectMaster.gameObject.SetActive(!PhotonNetwork.IsConnected && !triesToConnectToMaster);
-        if (btnConnectRoom != null)
-            btnConnectRoom.gameObject.SetActive(PhotonNetwork.IsConnected && !triesToConnectToMaster && !triesToConnectToRoom);
-        if (btnConnectMoon != null)
-            btnConnectMoon.gameObject.SetActive(PhotonNetwork.IsConnected && !triesToConnectToMaster && !triesToConnectToRoom);
+        //if (btnConnectMaster != null)
+        //    btnConnectMaster.gameObject.SetActive(!PhotonNetwork.IsConnected && !triesToConnectToMaster);
     }
 
     public void OnClickConnectToMaster()
@@ -55,8 +54,11 @@ public class LobbyController : MonoBehaviourPunCallbacks
         PhotonNetwork.GameVersion = "v1";            
 
         if(!PhotonNetwork.OfflineMode)
-            PhotonNetwork.ConnectUsingSettings();    
-
+            PhotonNetwork.ConnectUsingSettings();
+        if (btnConnectRoom != null)
+            btnConnectRoom.gameObject.SetActive(PhotonNetwork.IsConnected && !triesToConnectToMaster && !triesToConnectToRoom);
+        if (btnConnectMoon != null)
+            btnConnectMoon.gameObject.SetActive(PhotonNetwork.IsConnected && !triesToConnectToMaster && !triesToConnectToRoom);
     }
 
     public override void OnConnectedToMaster()
@@ -81,9 +83,17 @@ public class LobbyController : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
             return;
         triesToConnectToRoom = true;
+
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.IsOpen = true;
+        roomOptions.IsVisible = true;
+        roomOptions.MaxPlayers = (byte)10; //Set any number
+
+        PhotonNetwork.JoinOrCreateRoom(theme, roomOptions, TypedLobby.Default);
+
         //PhotonNetwork.CreateRoom("Peter's Game 1"); //Create a specific Room - Error: OnCreateRoomFailed
         //PhotonNetwork.JoinRoom("Peter's Game 1");   //Join a specific Room   - Error: OnJoinRoomFailed  
-        PhotonNetwork.JoinRandomRoom();               //Join a random Room     - Error: OnJoinRandomRoomFailed  
+        //PhotonNetwork.JoinRandomRoom();               //Join a random Room     - Error: OnJoinRandomRoomFailed  
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -109,7 +119,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
         Debug.Log("Master: " + PhotonNetwork.IsMasterClient + " | Players In Room: " + PhotonNetwork.CurrentRoom.PlayerCount + " | RoomName: " + PhotonNetwork.CurrentRoom.Name + " Region: " + PhotonNetwork.CloudRegion);
         //if(PhotonNetwork.IsMasterClient && SceneManager.GetActiveScene().name != "Network")
         //    PhotonNetwork.LoadLevel("Network");
-        if(PhotonNetwork.IsMasterClient && SceneManager.GetActiveScene().name != "MainScene")
+        //if(PhotonNetwork.IsMasterClient && SceneManager.GetActiveScene().name != "MainScene")
             PhotonNetwork.LoadLevel(this.sceneName);
     }
 }

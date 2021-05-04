@@ -54,6 +54,6 @@ public class RoomController : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         //We have left the Room, return back to the GameLobby
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LobbyScene");
     }
 }

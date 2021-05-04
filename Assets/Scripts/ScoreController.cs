@@ -20,6 +20,7 @@ public class ScoreController:MonoBehaviourPun, IPunObservable
     public static bool assassinTouch = false;
 
     public static bool gameover = false;
+
     PhotonView photonView;
 
     
@@ -76,35 +77,38 @@ public class ScoreController:MonoBehaviourPun, IPunObservable
         // color = !color;
         // renderer.material.SetColor("_Color", Color.red);
         //determine what color object it is by looking at the parent
-        switch (objColor)
+        if (!gameover)
         {
-            case "blue":
-                blueScore++;
-                redTurn = false;
-
-                break;
-            case "red":
-                redScore++;
-                redTurn = true;
-                break;
-            case "double":
-                if (turn == 0)
-                {
-                    redScore++;
-                    redTurn = true;
-                }
-                else
-                {
+            switch (objColor)
+            {
+                case "blue":
                     blueScore++;
                     redTurn = false;
-                }
-                break;
-            case "neutral":
-                redTurn = !redTurn;
-                break;
-            case "assassin":
-                assassinTouch = true;
-                break;
+
+                    break;
+                case "red":
+                    redScore++;
+                    redTurn = true;
+                    break;
+                case "double":
+                    if (turn == 0)
+                    {
+                        redScore++;
+                        redTurn = true;
+                    }
+                    else
+                    {
+                        blueScore++;
+                        redTurn = false;
+                    }
+                    break;
+                case "neutral":
+                    redTurn = !redTurn;
+                    break;
+                case "assassin":
+                    assassinTouch = true;
+                    break;
+            }
         }
     }
 
