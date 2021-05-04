@@ -2704,7 +2704,7 @@ GameObject:
   - component: {fileID: 4417296112203154241}
   - component: {fileID: -7070711133417424111}
   - component: {fileID: 8686184180776601110}
-  - component: {fileID: 2243557437669112414}
+  - component: {fileID: 8568905568353860918}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logLevel: 3
+  logLevel: 1
   ignoreGlobalLogLevel: 0
   recorderInUse: {fileID: -7070711133417424111}
   speakerInUse: {fileID: 8686184180776601110}
@@ -2937,13 +2937,13 @@ MonoBehaviour:
   voiceDetection: 0
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
-  unityMicrophoneDevice: 
+  unityMicrophoneDevice: Built-in Microphone
   photonMicrophoneDeviceId: 41
   interestGroup: 0
   debugEchoMode: 0
   reliableMode: 0
   encrypt: 0
-  transmitEnabled: 0
+  transmitEnabled: 1
   samplingRate: 24000
   frameDuration: 20000
   bitrate: 30000
@@ -2989,7 +2989,7 @@ MonoBehaviour:
     MinDelaySoft: 200
     MaxDelaySoft: 400
     MaxDelayHard: 1000
---- !u!114 &2243557437669112414
+--- !u!114 &8568905568353860918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2998,6 +2998,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8887985000673182459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3794463a7e8483090cae06746e2dfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 97f03255ae9ff410dacd8bea917bfef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recorder: {fileID: -7070711133417424111}
+  hasMicPermission: 0
