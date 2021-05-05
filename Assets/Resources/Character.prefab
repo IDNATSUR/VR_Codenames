@@ -2934,7 +2934,7 @@ MonoBehaviour:
   voiceDetection: 0
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
-  unityMicrophoneDevice: Built-in Microphone
+  unityMicrophoneDevice: Default Input Device
   photonMicrophoneDeviceId: 41
   interestGroup: 0
   debugEchoMode: 0
