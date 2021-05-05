@@ -7,6 +7,7 @@ using Photon.Pun;
 public class EndGame : MonoBehaviourPun
 {
     Canvas over;
+    private float distance = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class EndGame : MonoBehaviourPun
         if(ScoreController.gameover) {
             //print("game over..");
             over.enabled = true;
+            over.transform.position = Camera.main.transform.position + new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z) * distance;
+            over.transform.eulerAngles = new Vector3(0f, Camera.main.transform.eulerAngles.y, 0f);
         }
     }
 

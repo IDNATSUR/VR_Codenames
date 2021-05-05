@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ObjectController : MonoBehaviour
+public class ObjectController : MonoBehaviourPun
 {
     protected bool isPointEnter = false;
     protected bool isPointDown = false;
