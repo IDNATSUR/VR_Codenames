@@ -9,10 +9,12 @@ public class EndGame : MonoBehaviourPun
     Canvas over;
     private float distance = 2f;
 
+
     // Start is called before the first frame update
     void Start()
     {
         over = GetComponent<Canvas>();
+
         over.enabled = false;
     }
 

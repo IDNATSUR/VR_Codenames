@@ -30,4 +30,8 @@ ehthumbs.db
 [Oo]bj/
 [Bb]uild
 sysinfo.txt
+<<<<<<< HEAD
 *.stackdump
+=======
+*.stackdump
+>>>>>>> 3c4aafd6dedd39693cfd7b794034a6ae1392ab37
